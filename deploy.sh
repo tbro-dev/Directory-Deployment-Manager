@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#vars
 BLUE="\033[0;36m"
 GREEN="\033[1;32m"
 YELLOW="\033[1;33m"
@@ -11,25 +12,24 @@ THREE="Display Application Version History"
 FOUR="EXIT"
 user_option_input=""
 
-#!/bin/bash
-
+#procedures
 function pathDefinition(){
 
-# Path to the file you want to check
-file_path="./path.txt"
-file_exists=false
-
-# Check if the file exists
-if [ -f "$file_path" ]; then
-    file_exists=true
-else
+    # Path to the file you want to check
+    file_path="./path.txt"
     file_exists=false
-fi
 
-# Print the result
-echo "File exists: $file_exists"
+    # Check if the file exists
+    if [ -f "$file_path" ]; then
+        file_exists=true
+    else
+        file_exists=false
+    fi
 
-if [$file_exists == true]; then
+    # Print the result
+    echo "File exists: $file_exists"
+
+    if [$file_exists == true]; then
 
 }
 
