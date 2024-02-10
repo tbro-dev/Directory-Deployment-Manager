@@ -31,7 +31,10 @@ function pathDefinition(){
 
     if [$file_exists == true]; then
 
+
 }
+
+function displayUserOptions(){
 
 echo -e "${BLUE}==============================================================${RESET}"
 echo -e "${BLUE}|${RESET}      ${GREEN}${TITLE}${RESET}       "
@@ -46,3 +49,23 @@ read user_option_input
 echo -e "${BLUE}==============================================================${RESET}"
 echo -e "You responded with: ${user_option_input}"
 
+}
+
+
+if [ $user_option_input == 1 ]; then
+    pathDefinition
+
+case $user_option_input in
+  1)
+    echo "Count is 1."
+    ;;
+  2)
+    echo "Count is 2."
+    ;;
+  3)
+    echo "Count is not 1 or 2."
+    ;;
+  4)
+    echo "Exiting application"
+    ;;
+esac
