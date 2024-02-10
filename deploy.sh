@@ -45,10 +45,12 @@ echo -e "${BLUE}|${RESET} 3. ${YELLOW}${THREE}${RESET}                "
 echo -e "${BLUE}|${RESET} 4. ${YELLOW}${FOUR}${RESET}                 "
 echo -e "${BLUE}==============================================================${RESET}"
 echo -e "${BLUE}|${RESET} Please select option 1, 2, 3, or 4:         "
-read user_option_input
 echo -e "${BLUE}==============================================================${RESET}"
-echo -e "You responded with: ${user_option_input}"
+}
 
+function captureUserOption(){
+    read user_option_input
+    echo -e "You responded with: ${user_option_input}"
 }
 
 
@@ -69,3 +71,24 @@ case $user_option_input in
     echo "Exiting application"
     ;;
 esac
+
+# Define a function with arguments
+greet() {
+    local name="$1"   # First argument
+    local time="$2"   # Second argument
+
+    echo "Hello, $name! Good $time."
+}
+
+greet "Alice" "morning"
+
+
+testing() {
+    local arg="$1";
+
+    echo $arg
+    
+
+}
+
+oneTime="true"
