@@ -11,6 +11,27 @@ THREE="Display Application Version History"
 FOUR="EXIT"
 user_option_input=""
 
+#!/bin/bash
+
+function pathDefinition(){
+
+# Path to the file you want to check
+file_path="./path.txt"
+file_exists=false
+
+# Check if the file exists
+if [ -f "$file_path" ]; then
+    file_exists=true
+else
+    file_exists=false
+fi
+
+# Print the result
+echo "File exists: $file_exists"
+
+if [$file_exists == true]; then
+
+}
 
 echo -e "${BLUE}==============================================================${RESET}"
 echo -e "${BLUE}|${RESET}      ${GREEN}${TITLE}${RESET}       "
@@ -24,3 +45,4 @@ echo -e "${BLUE}|${RESET} Please select option 1, 2, 3, or 4:         "
 read user_option_input
 echo -e "${BLUE}==============================================================${RESET}"
 echo -e "You responded with: ${user_option_input}"
+
