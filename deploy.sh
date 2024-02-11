@@ -26,6 +26,14 @@ user_option_input=""
 #################################################
 
 #3
+
+function getPath(){
+    local pathKey="$1"
+    local pathTitle="${pathKey//_/ }"
+    echo $(grep "$pathKey" "path.txt" | cut -d "=" -f 2)
+    #key_contents= $(grep "$pathKey" "path.txt" | cut -d "=" -f 2)
+}
+
 function validatePath() {
     local pathKey="$1"                  
     local pathTitle="${pathKey//_/ }"   
@@ -33,8 +41,12 @@ function validatePath() {
     echo -e "${BLUE}==============================================================${RESET}"
     
     if grep -q "$pathKey" "path.txt"; then
-        key_contents=$(grep "$pathKey" "path.txt" | cut -d "=" -f 2)
+        key_contents=$(getPath $pathKey)
         echo "${pathTitle}: ${key_contents}"
+        
+        #key_contents=$(grep "$pathKey" "path.txt" | cut -d "=" -f 2)        
+        #echo "${pathTitle}: ${key_contents}"
+
     else
         read -p "Enter $pathTitle: " user_res
         echo "$pathKey=$user_res" >> path.txt
@@ -76,6 +88,14 @@ function pathDefinition() {
     fi
 }
 
+function promoteApplication(){
+    staging=$(getPath "staging_path")
+    production=$(getPath "production_path")
+    
+    key_contents=$(grep "$pathKey" "path.txt" | cut -d "=" -f 2)
+        echo "${pathTitle}: ${key_contents}"
+}
+
 #1
 function displayUserOptions() {
     echo -e "${BLUE}==============================================================${RESET}"
@@ -110,6 +130,7 @@ case $user_selected_option in
 1)
     echo "User selected option 1."
     pathDefinition
+    promoteApplication
     writeHistory 'promote application'
     runApp
     ;;
