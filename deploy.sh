@@ -24,6 +24,8 @@ user_option_input=""
 
 #procedures
 #################################################
+
+#3
 function validatePath() {
     local pathKey="$1"                  
     local pathTitle="${pathKey//_/ }"   
@@ -36,6 +38,7 @@ function validatePath() {
     fi
 }
 
+#2
 function pathDefinition() {
     file_path="./path.txt"
   
@@ -47,7 +50,11 @@ function pathDefinition() {
         file_exists=false
     fi
 
-    if [ $file_exists == false ]; then
+    if [ $file_exists == true ]; then
+        validatePath "staging_path"
+        validatePath "production_path"
+        validatePath "archive_path"        
+    else
         read -p "Enter the path for the staging folder: " staging_path
         read -p "Enter the path for the production folder: " production_path
         read -p "Enter the path for the archive folder: " archive_path
@@ -63,6 +70,7 @@ function pathDefinition() {
     echo "Archive: $archive_path"
 }
 
+#1
 function displayUserOptions() {
     echo -e "${BLUE}==============================================================${RESET}"
     echo -e "${BLUE}|${RESET}      ${GREEN}${TITLE}${RESET}       "
