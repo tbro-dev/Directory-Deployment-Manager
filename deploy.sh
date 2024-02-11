@@ -90,10 +90,7 @@ function pathDefinition() {
 
 function promoteApplication(){
     staging=$(getPath "staging_path")
-    production=$(getPath "production_path")
-    
-    key_contents=$(grep "$pathKey" "path.txt" | cut -d "=" -f 2)
-        echo "${pathTitle}: ${key_contents}"
+    production=$(getPath "production_path")    
 }
 
 #1
