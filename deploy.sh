@@ -1,7 +1,13 @@
 #!/bin/bash
-set -x
+isDebug="$1"
+if ["$isDebug" == "debug" || "Debug"]; then
+    set -x
+    echo "debug mode is on"
+else
+    echo "normal mode is on"
+fi
+
 echo "Starting..."
-# Your script here
 
 #vars
 ################################################
