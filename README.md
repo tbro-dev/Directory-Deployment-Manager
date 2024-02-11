@@ -32,7 +32,11 @@ This repository contains a shell script that facilitates the deployment of Dotne
    ```bash
    ./deploy.sh
    ```
+5. To debug...execute the script with the 'debug' argument.
 
+   ```bash
+   ./deploy.sh debug
+   ```
 ## Configuration
 
 The script may require configuration based on your specific application setup. Open the script in a text editor and modify the variables at the top to match your environment.
