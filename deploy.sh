@@ -95,6 +95,13 @@ function captureUserOption() {
     echo "${user_option_input}"
 }
 
+function writeHistory() {
+    local action_message="$1"
+     
+    writeDate=$(date +"%Y-%m-%d %H:%M:%S")
+    echo "$writeDate: $action_message" >> path.txt
+}
+
 function runApp(){
 
 displayUserOptions
@@ -104,16 +111,18 @@ case $user_selected_option in
 1)
     echo "User selected option 1."
     pathDefinition
+    writeHistory 'promote application'
     runApp
     ;;
 2)
     echo "User selected option 2."
     pathDefinition
+    writeHistory 'rollback application'
     runApp
     ;;
 3)
     echo "User selected option 3."
-    pathDefinition
+    pathDefinition   
     runApp
     ;;
 4)
