@@ -1,4 +1,7 @@
 #!/bin/bash
+set -x
+echo "Starting..."
+# Your script here
 
 #vars
 ################################################
@@ -51,8 +54,24 @@ function pathDefinition(){
         validatePath "staging_path"
         validatePath "production_path"
         validatePath "archive_path"
-        
+    else     
+
+    echo "The file was not available, lets create one to support the application"
+    read -p "Enter the path for the staging folder: " staging_path
+    read -p "Enter the path for the production folder: " production_path
+    read -p "Enter the path for the archive folder: " archive_path
+
+    echo "staging_path=$staging_path" > path.txt
+    echo "production_path=$production_path" > path.txt
+    echo "archive_path=$archive_path" > path.txt
+
     fi
+
+    echo "You have listed the paths below:"
+    echo "Staging: $staging_path"
+    echo "Production: $production_path"
+    echo "Archive: $archive_path_path"
+
 }
 
 function displayUserOptions(){
@@ -84,19 +103,24 @@ case $user_selected_option in
 1)
     pathDefinition
     echo "User selected option 1."
+    displayUserOptions
     ;;
 2)
     pathDefinition
     echo "User selected option 2."
+    displayUserOptions
     ;;
 3)
     pathDefinition
     echo "User selected option 3."
+    displayUserOptions
     ;;
 4)
     echo "Exiting application"
     ;;
 *)
+
+    echo "Please select from the listed options"
     displayUserOptions
     ;;
 esac
