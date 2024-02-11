@@ -29,9 +29,12 @@ user_option_input=""
 function validatePath() {
     local pathKey="$1"                  
     local pathTitle="${pathKey//_/ }"   
-
+     
+    echo -e "${BLUE}==============================================================${RESET}"
+    
     if grep -q "$pathKey" "path.txt"; then
-        staging_path=$(grep "$pathKey" "path.txt" | cut -d "=" -f 2)
+        key_contents=$(grep "$pathKey" "path.txt" | cut -d "=" -f 2)
+        echo "${pathTitle}: ${key_contents}"
     else
         read -p "Enter $pathTitle: " user_res
         echo "$pathKey=$user_res" >> path.txt
@@ -41,7 +44,9 @@ function validatePath() {
 #2
 function pathDefinition() {
     file_path="./path.txt"
-  
+     
+    echo -e "${BLUE}==============================================================${RESET}"
+
     if [ -f "$file_path" ]; then
         echo "the file path.txt exists"
         file_exists=true
@@ -55,6 +60,7 @@ function pathDefinition() {
         validatePath "production_path"
         validatePath "archive_path"        
     else
+        echo -e "${BLUE}==============================================================${RESET}"
         read -p "Enter the path for the staging folder: " staging_path
         read -p "Enter the path for the production folder: " production_path
         read -p "Enter the path for the archive folder: " archive_path
@@ -62,12 +68,12 @@ function pathDefinition() {
         echo "staging_path=$staging_path" > path.txt
         echo "production_path=$production_path" >> path.txt
         echo "archive_path=$archive_path" >> path.txt
-    fi
 
-    echo "You have listed the paths below:"
-    echo "Staging: $staging_path"
-    echo "Production: $production_path"
-    echo "Archive: $archive_path"
+        echo "You have listed the paths below:"
+        echo "Staging: $staging_path"
+        echo "Production: $production_path"
+        echo "Archive: $archive_path"
+    fi
 }
 
 #1
@@ -95,18 +101,18 @@ user_selected_option=$(captureUserOption)
     
 case $user_selected_option in
 1)
-    pathDefinition
     echo "User selected option 1."
+    pathDefinition
     displayUserOptions
     ;;
 2)
-    pathDefinition
     echo "User selected option 2."
+    pathDefinition
     displayUserOptions
     ;;
 3)
-    pathDefinition
     echo "User selected option 3."
+    pathDefinition
     displayUserOptions
     ;;
 4)
