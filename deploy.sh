@@ -95,7 +95,8 @@ function captureUserOption() {
     echo "${user_option_input}"
 }
 
-#start application
+function runApp(){
+
 displayUserOptions
 user_selected_option=$(captureUserOption)
     
@@ -103,23 +104,27 @@ case $user_selected_option in
 1)
     echo "User selected option 1."
     pathDefinition
-    displayUserOptions
+    runApp
     ;;
 2)
     echo "User selected option 2."
     pathDefinition
-    displayUserOptions
+    runApp
     ;;
 3)
     echo "User selected option 3."
     pathDefinition
-    displayUserOptions
+    runApp
     ;;
 4)
     echo "Exiting application"
     ;;
 *)
     echo "Please select from the listed options"
-    displayUserOptions
+    runApp
     ;;
 esac
+}
+
+#start application
+runApp
