@@ -9,19 +9,19 @@ fi
 
 echo "Starting..."
 
+# Vars
+BLUE="\033[0;36m"
+GREEN="\033[1;32m"
+YELLOW="\033[1;33m"
+RESET="\033[0m"
+TITLE="Ubuntu Deployment Manager"
+ONE="Promote Application"
+TWO="Rollback Application"
+THREE="Display Application Version History"
+FOUR="EXIT"
 
 # Function to display user options
-function displayUserOptions() {
-
-    BLUE="\033[0;36m"
-    GREEN="\033[1;32m"
-    YELLOW="\033[1;33m"
-    RESET="\033[0m"
-    TITLE="Ubuntu Deployment Manager"
-    ONE="Promote Application"
-    TWO="Rollback Application"
-    THREE="Display Application Version History"
-    FOUR="EXIT"
+function displayUserOptions() {    
     
     echo -e "${BLUE}==============================================================${RESET}"
     echo -e "${BLUE}|${RESET}      ${GREEN}${TITLE}${RESET}       "
@@ -48,14 +48,16 @@ function promoteApplication(){
 }
 
 # Function to handle rolling back application
-function rollbackApplication() {
+#function rollbackApplication() {
     # Your implementation
-}
+#}
 
 # Function to handle displaying application version history
 function displayVersionHistory() {
-    echo "User selected option 3."
     pathDefinition
+    echo -e "${BLUE}==============================================================${RESET}"
+    echo -e "${BLUE}|${RESET} Application Version History"
+    echo -e "${BLUE}==============================================================${RESET}"
     cat ./path.txt  
 }
 
@@ -146,8 +148,7 @@ while [ $continue != 'false' ]; do
             ;;
         3)
             echo "User selected option 3."
-            pathDefinition
-            cat ./path.txt   
+            displayVersionHistory 
             ;;
         4)
             echo "Exiting application"
@@ -157,6 +158,7 @@ while [ $continue != 'false' ]; do
             echo "Please select from the listed options"
             ;;
         esac
+
     done
 }
 
