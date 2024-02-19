@@ -40,7 +40,7 @@ This repository contains a shell script that facilitates the deployment of web a
 
    ```bash
       sudo apt install dos2unix
-      dos2unix ./runapp.sh
+      dos2unix ./deploy.sh
    ```
 
 5. To debug...execute the script with the 'debug' argument.
