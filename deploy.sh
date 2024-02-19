@@ -53,6 +53,7 @@ function promoteApplication(){
 function moveApplication() {     
     local source_dir="$1"
     local destination_dir="$2"
+    local user_response
 
     # Check if the source directory exists
     if [ ! -d "$source_dir" ]; then
@@ -69,13 +70,23 @@ function moveApplication() {
     # Check if the current user has write permission on the destination directory
     if [ ! -w "$destination_dir" ]; then
         echo "You do not have permission to move the directory $source_dir to the protected folder $destination_dir."
-        return 1
+        echo "Would you like to change the permission of the $destination_dir?"        
+        echo "Enter your response (y/n): "
+        user_response=$(captureUserOption)    
+
+        if [ "$user_response" == "y" ]; then
+            sudo chmod +w "$destination_dir" 
+        else            
+            echo "You have said no, therefore we will not continue!"
+            return 1
+        fi     
+            
     fi
 
     echo "You have permission to move the directory to the protected folder."
     
     # Perform the move operation here
-    if ! mv "$source_dir" "$destination_dir"; then
+    if ! sudo mv "$source_dir" "$destination_dir"; then
         echo "Failed to move $source_dir to $destination_dir."
         return 1
     fi
@@ -159,7 +170,7 @@ function validatePath() {
 #Function to support validate and write paths
 function getPath(){
     local path_key="$1"
-    echo $(grep "$path_key" "./path.txt" | cut -d "=" -f 2)
+    echo "$(grep "$path_key" "./path.txt" | cut -d "=" -f 2)"
 }
 
 # Function to run the application
@@ -177,18 +188,22 @@ function runApp() {
                     case $user_selected_option in
                         1)
                             pathDefinition
-                            local staging production
+                            local staging production archive
                             staging=$(getPath "staging_path")
                             production=$(getPath "production_path")
-                            moveApplication "$staging" "$production" || echo "Rollback operation failed."
+                            archive=$(getPath "archive_path")
+                            moveApplication "$production" "$archive" || echo "Production to archive operation failed."
+                            moveApplication "$staging" "$production" || echo "Staging to production operation failed."
                             writeHistory 'promote application'
                             ;;
                         2)
                             pathDefinition
-                            #local staging production
-                            #staging=$(getPath "production_path")
-                            #production=$(getPath "archive_path")
-                            #moveApplication "$staging" "$production" || echo "Rollback operation failed."
+                            local staging production archive
+                            staging=$(getPath "staging_path")
+                            production=$(getPath "production_path")
+                            archive=$(getPath "archive_path")
+                            moveApplication "$production" "$staging" || echo "Production to staging operation failed."
+                            moveApplication "$archive" "$production" || echo "Archive to production operation failed."
                             writeHistory 'rollback application'
                             ;;
                         3)
