@@ -49,6 +49,3 @@ Contributions and feedback are welcome! Feel free to open issues or submit pull 
 
 This Ubuntu Deployment Manager is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
-
-Feel free to customize the repository name and README according to your preferences and specific details of your deployment script.
-![image](https://github.com/tbro-dev/Ubuntu-Deployment-Manager/assets/128116644/a2f74946-185d-4d14-8dc5-f83d2a292c5a)
