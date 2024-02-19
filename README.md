@@ -1,4 +1,4 @@
-# Ubuntu-Deployment-Manager
+# Directory-Deployment-Manager
 This repository contains a shell script that facilitates the deployment of web application directories on an Ubuntu server. The script is designed to manage the promotion of applications from a staging environment to production, ensuring a smooth deployment process.
 
 ![Image of the ubuntu deployment manager command line user interface](./UDP.png)
