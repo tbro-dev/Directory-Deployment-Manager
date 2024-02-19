@@ -48,4 +48,3 @@ Contributions and feedback are welcome! Feel free to open issues or submit pull 
 ## License
 
 This Ubuntu Deployment Manager is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
