@@ -15,7 +15,7 @@ blue="\033[0;36m"
 green="\033[0;32m"
 yellow="\033[1;33m"
 reset="\033[0m"
-title="Ubuntu Deployment Manager"
+title="Directory Deployment Manager"
 
 # Function to display user options
 displayUserOptions() {    
