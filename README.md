@@ -1,12 +1,12 @@
 # Ubuntu-Deployment-Manager
-This repository contains a shell script that facilitates the deployment of Dotnet Core applications on an Ubuntu server. The script is designed to manage the promotion of applications from a staging environment to production, ensuring a smooth deployment process.
+This repository contains a shell script that facilitates the deployment of web application directories on an Ubuntu server. The script is designed to manage the promotion of applications from a staging environment to production, ensuring a smooth deployment process.
 
 ![Image of the ubuntu deployment manager command line user interface](./UDP.png)
 
 
 ## Features
 
-- **Staging to Production Deployment:** Easily promote your Dotnet Core applications from a staging environment to the production environment.
+- **Staging to Production Deployment:** Easily promote your web applications from a staging environment to the production environment.
 
 - **Backup and Rollback:** The script automatically creates backups of the production application before deploying a new version. This enables you to rollback to a previous version if needed.
 
