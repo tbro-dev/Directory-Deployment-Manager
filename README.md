@@ -35,6 +35,14 @@ This repository contains a shell script that facilitates the deployment of web a
    ```bash
    ./deploy.sh
    ```
+
+   If you encounter the error: " /bin/bash^M: bad interpreter: No such file or directory". Run the script below:
+
+   ```bash
+      sudo apt install dos2unix
+      dos2unix ./runapp.sh
+   ```
+
 5. To debug...execute the script with the 'debug' argument.
 
    ```bash
