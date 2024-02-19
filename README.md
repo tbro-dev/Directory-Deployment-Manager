@@ -15,13 +15,13 @@ This repository contains a shell script that facilitates the deployment of web a
 1. Clone this repository to your Ubuntu server. You can also just move the deploy.sh script to the Ubuntu server directory on its own without the full repository.
 
    ```bash
-   git clone https://github.com/tbro-dev/Ubuntu-Deployment-Manager.git
+   git clone https://github.com/tbro-dev/Directory-Deployment-Manager.git
    ```
 
 2. Navigate to the repository directory.
 
    ```bash
-   cd Ubuntu-Deployment-Manager
+   cd Directory-Deployment-Manager
    ```
 
 3. Make the deployment script executable.
@@ -30,7 +30,7 @@ This repository contains a shell script that facilitates the deployment of web a
    chmod +x deploy.sh
    ```
 
-4. Execute the script to manage your Dotnet Core application deployment.
+4. Execute the script to manage your web application deployment.
 
    ```bash
    ./deploy.sh
@@ -46,8 +46,8 @@ The script may require configuration based on your specific application setup. O
 
 ## Contributions
 
-Contributions and feedback are welcome! Feel free to open issues or submit pull requests to improve this Ubuntu Deployment Manager.
+Contributions and feedback are welcome! Feel free to open issues or submit pull requests to improve this Directory Deployment Manager.
 
 ## License
 
-This Ubuntu Deployment Manager is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This Directory Deployment Manager is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
