@@ -12,7 +12,7 @@ This repository contains a shell script that facilitates the deployment of Dotne
 
 ## Usage
 
-1. Clone this repository to your Ubuntu server.
+1. Clone this repository to your Ubuntu server. You can also just move the deploy.sh script to the Ubuntu server directory on its own without the full repository.
 
    ```bash
    git clone https://github.com/tbro-dev/Ubuntu-Deployment-Manager.git
